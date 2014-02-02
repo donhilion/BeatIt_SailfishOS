@@ -35,13 +35,14 @@ import "../beats.js" as BEATS
 
 Page {
     id: main
+    property var applicationActive: app.applicationActive
     function refresh() {
         beats.text = "@" + BEATS.calculateBeats()
     }
-
+    onApplicationActiveChanged: { if(applicationActive) main.refresh(); }
     Timer {
         id: mainTimer
-        interval: 30000;
+        interval: 10000;
         running: applicationActive
         repeat: true
         onTriggered: main.refresh()

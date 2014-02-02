@@ -40,8 +40,8 @@ CoverBackground {
 
     Timer {
         id: mainTimer
-        interval: 30000;
-        running: applicationActive
+        interval: 10000;
+        running: true
         repeat: true
         onTriggered: cover.refresh()
     }
